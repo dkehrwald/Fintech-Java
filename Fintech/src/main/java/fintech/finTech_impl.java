@@ -6,7 +6,6 @@ import fintech.accounts.Cash;
 import fintech.accounts.Debt;
 import fintech.accounts.Investment;
 import fintech.user.User;
-import fintech.user.UserImpl;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -18,7 +17,30 @@ public abstract class FinTech_impl implements FinTech {
      * {@inheritDoc}
      */
     public User getUserById(int id) {
-        return UserImpl.retrieveUser(id);
+        User user = new User();
+
+        try {
+            //connect to SQL
+
+            /**
+             * call readUser.sql
+             * passing in id as param 1
+             *
+             * create the user from the params returned
+             * user.setFirstName from (1)
+             * user.setLastName from (2)
+             * user.setEmail from (3)
+             * user.setPhoneNumber from (4)
+             * user.setUserId(5)
+             *
+             */
+
+        }
+        catch (Exception e) {
+            //throw exception
+        }
+        return user;
+
     };
 
     /**
@@ -33,7 +55,23 @@ public abstract class FinTech_impl implements FinTech {
         user.setPhone(phoneNumber);
         user.setUserId(user.hashCode());
 
-        UserImpl.addUser(user);
+        try {
+            //connect to SQL
+
+            /**
+             * call newUser.sql
+             *
+             * send user.getFirstName() as (1)
+             * send user.getLastName() as (2)
+             * send user.getEmail() as (3)
+             * send user.getPhoneNumber() as (4)
+             * send user.getUserId() as (5)
+             *
+             */
+        }
+        catch(Exception e) {
+            //throw exception
+        }
     };
 
     /**
