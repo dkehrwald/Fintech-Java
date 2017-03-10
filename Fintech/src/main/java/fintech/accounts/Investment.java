@@ -3,6 +3,10 @@ package fintech.accounts;
 public class Investment extends Account {
     private String holdings;
 
+    public AccountType getType() {
+        return AccountType.INVESTMENT;
+    }
+
     public String getHoldings() {
         return holdings;
     }

@@ -1,56 +1,56 @@
 package fintech;
 
 import fintech.accounts.Account;
-import fintech.accounts.Accounts;
 import fintech.user.User;
 
+import java.lang.reflect.Array;
+import java.util.List;
+
 /**
- * interface for finTech demo project
+ * interface for FinTech demo project
  */
-public interface finTech {
+public interface FinTech {
 
     /**
-     * Retrieves all available users
+     * Retrieves user by userId
      * @return {@User} users
      */
-    User getUsers();
+    User getUserById(int id);
 
     /**
-     * creates a new user
-     * @param user
+     * create a new user
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param phoneNumber
      */
-    void createUser(User user);
-
-    /**
-     * modifies a {@User} by their userId
-     * @param user modified User
-     */
-    void modifyUser(User user);
-
-    /**
-     * deletes a {@User} by their userId
-     * @param userId userId of user to delete
-     */
-    void deleteUserByUserId(int userId);
+    void createUser(String firstName, String lastName, String email, double phoneNumber);
 
     /**
      * retrieves accounts linked to a specific userId
      * @param userId userId of accounts to retrieve
      * @return {@Acoount}'s linked to userId
      */
-    Accounts getAccountsByUserId(int userId);
+    List<Account> getAccountsByUserId(int userId);
 
     /**
-     * creates a new Account
-     * @param account {@Account} to create
+     * create new account
+     * @param user_id
+     * @param account_id
+     * @param account_name
+     * @param type
+     * @param balance
+     * @param holdings
      */
-    void createAccount(Account account);
+    void createAccount(int user_id, int account_id, String account_name, int type, double balance, String holdings);
 
     /**
      * modifies an existing account
      * @param account {@Account} to modify
+     * @param balance new balance to update to account
+     *
      */
-    void modifyAccount(Account account);
+    void modifyAccountBalance(Account account, double balance);
 
     /**
      * deletes an existing account
